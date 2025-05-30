@@ -92,7 +92,7 @@
                 </div>
 
                 <div class="table-container">
-                    <table class="medications-table">
+                    <table class="medications-table" id="tabela-medicamentos">
                         <thead>
                             <tr>
                                 <th>Nome</th>
@@ -106,48 +106,6 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Dipirona</td>
-                                <td>500mg</td>
-                                <td>Medley</td>
-                                <td>ABC123</td>
-                                <td>150</td>
-                                <td>12/12/2024</td>
-                                <td><span class="status success">Normal</span></td>
-                                <td class="actions">
-                                    <button class="action-btn edit" onclick="window.location.href='adicionar.html'" aria-label="Editar">
-                                        <svg viewBox="0 0 24 24">
-                                            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                                        </svg>
-                                    </button>
-                                    <button class="action-btn delete" onclick="if(confirm('Deseja realmente excluir este medicamento?')) window.location.reload()" aria-label="Remover">
-                                        <svg viewBox="0 0 24 24">
-                                            <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
-                                        </svg>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Amoxicilina</td>
-                                <td>875mg</td>
-                                <td>EMS</td>
-                                <td>XYZ789</td>
-                                <td>50</td>
-                                <td>01/03/2024</td>
-                                <td><span class="status warning">Estoque Baixo</span></td>
-                                <td class="actions">
-                                    <button class="action-btn edit" onclick="window.location.href='adicionar.html'" aria-label="Editar">
-                                        <svg viewBox="0 0 24 24">
-                                            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                                        </svg>
-                                    </button>
-                                    <button class="action-btn delete" onclick="if(confirm('Deseja realmente excluir este medicamento?')) window.location.reload()" aria-label="Remover">
-                                        <svg viewBox="0 0 24 24">
-                                            <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
-                                        </svg>
-                                    </button>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -160,5 +118,6 @@
             </section>
         </main>
     </div>
+    <script src="js/app.js"></script>
 </body>
 </html> 
