@@ -550,4 +550,64 @@ input, select, textarea {
         width: 16px;
         height: 16px;
     }
+}
+
+/* Estilos para o controle de aplicações */
+.dosagem-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.dosagem-group input {
+    flex: 2;
+}
+
+.dosagem-group select {
+    flex: 1;
+}
+
+.aplicacoes-section {
+    background: white;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.add-application-form {
+    background: white;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 20px;
+    display: block;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.add-application-form form {
+    display: block;
+    width: 100%;
+}
+
+/* Status específicos para aplicações */
+.status.pending {
+    background-color: rgba(255, 152, 0, 0.1);
+    color: #ff9800;
+}
+
+.status.completed {
+    background-color: rgba(76, 175, 80, 0.1);
+    color: var(--success-color);
+}
+
+/* Responsividade para aplicações */
+@media (max-width: 768px) {
+    .dosagem-group {
+        flex-direction: column;
+    }
+    
+    .dosagem-group input,
+    .dosagem-group select {
+        width: 100%;
+    }
 } 
