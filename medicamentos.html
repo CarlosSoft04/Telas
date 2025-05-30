@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel de Controle - Estoque de Medicamentos</title>
+    <title>Lista de Medicamentos - Estoque de Medicamentos</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
@@ -16,13 +16,13 @@
                 <h1>Controle de Medicamentos</h1>
             </div>
             <nav class="sidebar-nav">
-                <a href="index.html" class="nav-item active">
+                <a href="index.html" class="nav-item">
                     <svg class="icon" viewBox="0 0 24 24">
                         <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
                     </svg>
                     Visão Geral
                 </a>
-                <a href="medicamentos.html" class="nav-item">
+                <a href="medicamentos.html" class="nav-item active">
                     <svg class="icon" viewBox="0 0 24 24">
                         <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
                     </svg>
@@ -46,7 +46,7 @@
         <!-- Conteúdo Principal -->
         <main class="main-content">
             <header class="content-header">
-                <h2>Visão Geral</h2>
+                <h2>Lista de Medicamentos</h2>
                 <div class="user-info">
                     <span>Olá, Administrador</span>
                     <button class="help-btn" aria-label="Ajuda">
@@ -57,32 +57,30 @@
                 </div>
             </header>
 
-            <!-- Cards de Visão Geral -->
-            <section class="overview-cards">
-                <div class="card total-stock">
-                    <h3>Total em Estoque</h3>
-                    <p class="number">1.234</p>
-                    <p class="label">medicamentos</p>
-                </div>
-                <div class="card low-stock warning">
-                    <h3>Estoque Baixo</h3>
-                    <p class="number">8</p>
-                    <p class="label">itens precisam de reposição</p>
-                </div>
-                <div class="card expiring danger">
-                    <h3>Próximos da Validade</h3>
-                    <p class="number">12</p>
-                    <p class="label">vencem em 30 dias</p>
-                </div>
-            </section>
-
-            <!-- Lista de Medicamentos -->
             <section class="medications-list">
                 <div class="section-header">
-                    <h3>Medicamentos Recentes</h3>
+                    <div class="filters">
+                        <div class="search-box">
+                            <input type="search" placeholder="Buscar medicamento..." aria-label="Buscar medicamento">
+                            <button class="search-btn" aria-label="Buscar">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <select class="filter-select">
+                            <option value="">Todos os Status</option>
+                            <option value="normal">Normal</option>
+                            <option value="baixo">Estoque Baixo</option>
+                            <option value="vencendo">Próximo ao Vencimento</option>
+                        </select>
+                    </div>
                     <div class="actions">
-                        <button class="btn secondary" onclick="window.location.href='medicamentos.html'">
-                            Ver Todos
+                        <button class="btn secondary" onclick="window.location.href='relatorios.html'">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                            </svg>
+                            Exportar Lista
                         </button>
                         <button class="btn primary" onclick="window.location.href='adicionar.html'">
                             <svg viewBox="0 0 24 24">
@@ -99,6 +97,8 @@
                             <tr>
                                 <th>Nome</th>
                                 <th>Dosagem</th>
+                                <th>Fabricante</th>
+                                <th>Lote</th>
                                 <th>Quantidade</th>
                                 <th>Validade</th>
                                 <th>Status</th>
@@ -109,13 +109,20 @@
                             <tr>
                                 <td>Dipirona</td>
                                 <td>500mg</td>
+                                <td>Medley</td>
+                                <td>ABC123</td>
                                 <td>150</td>
                                 <td>12/12/2024</td>
                                 <td><span class="status success">Normal</span></td>
-                                <td>
-                                    <button class="action-btn edit" onclick="window.location.href='medicamentos.html'" aria-label="Editar">
+                                <td class="actions">
+                                    <button class="action-btn edit" onclick="window.location.href='adicionar.html'" aria-label="Editar">
                                         <svg viewBox="0 0 24 24">
                                             <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+                                        </svg>
+                                    </button>
+                                    <button class="action-btn delete" onclick="if(confirm('Deseja realmente excluir este medicamento?')) window.location.reload()" aria-label="Remover">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
                                         </svg>
                                     </button>
                                 </td>
@@ -123,19 +130,32 @@
                             <tr>
                                 <td>Amoxicilina</td>
                                 <td>875mg</td>
+                                <td>EMS</td>
+                                <td>XYZ789</td>
                                 <td>50</td>
                                 <td>01/03/2024</td>
                                 <td><span class="status warning">Estoque Baixo</span></td>
-                                <td>
-                                    <button class="action-btn edit" onclick="window.location.href='medicamentos.html'" aria-label="Editar">
+                                <td class="actions">
+                                    <button class="action-btn edit" onclick="window.location.href='adicionar.html'" aria-label="Editar">
                                         <svg viewBox="0 0 24 24">
                                             <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+                                        </svg>
+                                    </button>
+                                    <button class="action-btn delete" onclick="if(confirm('Deseja realmente excluir este medicamento?')) window.location.reload()" aria-label="Remover">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
                                         </svg>
                                     </button>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
+                </div>
+
+                <div class="pagination">
+                    <button class="btn secondary" disabled>Anterior</button>
+                    <span>Página 1 de 5</span>
+                    <button class="btn secondary">Próxima</button>
                 </div>
             </section>
         </main>
